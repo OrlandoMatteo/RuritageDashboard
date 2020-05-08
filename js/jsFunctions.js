@@ -1,3 +1,4 @@
+var api_url="http://www.localhost:8000";
 function add_video() {
 	// body...
 	var marker_video = L.marker([45, -75.621562], {
@@ -576,7 +577,7 @@ function drawArea(data) {
 function addRMArea() {
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/RMAreas',
+		url: api_url+'/RMAreas',
 		dataType: 'json',
 
 		success: function(response) {
@@ -589,7 +590,7 @@ function addRMArea() {
 function addRArea() {
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/RAreas',
+		url: api_url+'/RAreas',
 		dataType: 'json',
 
 		success: function(response) {
@@ -620,7 +621,7 @@ function drawPaths(data) {
 function addRMPath() {
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/RMPath',
+		url: api_url+'/RMPath',
 		dataType: 'json',
 
 		success: function(response) {
@@ -690,12 +691,12 @@ function addBuildings() {
 		}
 	});
 	var bui_type = [];
-	bui_type = buiSelector.selected();
+	//bui_type = buiSelector.selected();
 
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/buildings',
+		url: api_url+'/buildings',
 		data: {bounds: JSON.stringify(bounds), bui_types: JSON.stringify(bui_type)},
 		dataType: 'json',
 
@@ -804,7 +805,7 @@ function addTowns() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/towns',
+		url: api_url+'/towns',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -931,7 +932,7 @@ function addSites() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/sites',
+		url: api_url+'/sites',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -1099,7 +1100,7 @@ function addHistBuildings() {
 		}
 	});*/
 	var hbl = [];
-	hbl = hbtSelector.selected();
+	//hbl = hbtSelector.selected();
 	/*checkboxesBui=document.getElementById('hbtlist');
     for (i=0;i<checkboxesBui.children.length;i++){
         if (checkboxesBui.children[i].type=="checkbox")
@@ -1112,7 +1113,7 @@ function addHistBuildings() {
     }*/
 
 	var ssc = [];
-	ssc = sscSelector.selected();
+	//ssc = sscSelector.selected();
 	/*checkboxesBui=document.getElementById('ssclist');
     for (i=0;i<checkboxesBui.children.length;i++){
         if (checkboxesBui.children[i].type=="checkbox")
@@ -1124,18 +1125,18 @@ function addHistBuildings() {
         }
     }*/
 	var tm = [];
-	tm = tmSelector.selected();
+	//tm = tmSelector.selected();
 	var ts = [];
-	ts = tsSelector.selected();
+	//ts = tsSelector.selected();
 	var rm = [];
-	rm = rmotSelector.selected();
+	//rm = rmotSelector.selected();
 	var nf = [];
-	nf = nfSelector.selected();
+	//nf = nfSelector.selected();
 
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/histbuildings',
+		url: api_url+'/histbuildings',
 		data: {
 			bounds: JSON.stringify(bounds),
 			bui_types: JSON.stringify(hbl),
@@ -1195,7 +1196,7 @@ function hideOnZoom() {
 					if (layer.feature.geometry.properties['Role']) {
 						//main_map.removeLayer(layer);
 						//areaLayer = false;
-						landuseLayer=false;
+						//landuseLayer=false;
 					}
 				}
 			}
@@ -1227,9 +1228,10 @@ function hideOnZoom() {
 				openairLayer=true;
 			}
 			if (landuseLayer == false && $('.leaflet-control-layers-overlays > label:nth-child(6) > div:nth-child(1) > input:nth-child(1)')[0].checked ) {
-				addLandUse();
-				addRiskZone();
 				landuseLayer=true;
+				addLandUse();
+				//addRiskZone();
+				
 			}
 			
 			if (routeLayer == false && $('.leaflet-control-layers-overlays > label:nth-child(11) > div:nth-child(1) > input:nth-child(1)')[0].checked) {
@@ -1255,8 +1257,8 @@ function hideOnZoom() {
 		//$('#siteButton')[0].style.display='none';
 		//$('#buildingButton')[0].style.display='none';
 		//$('#imageButton')[0].style.display='none';
-		$('#imageContainer')[0].style.display = 'none';
-		$('#imageContainer').html('');
+		// $('#imageContainer')[0].style.display = 'none';
+		// $('#imageContainer').html('');
 		townLayer = false;
 		siteLayer = false;
 		eventLayer = false;
@@ -1734,7 +1736,7 @@ function rmRColor(code){
 function viewPractices(RmID) {
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/queryBP',
+		url: api_url+'/queryBP',
 		data: {RmID: JSON.stringify(RmID)},
 		dataType: 'json',
 
@@ -1952,7 +1954,7 @@ main_map.eachLayer(function(layer){
 function getImage(img,code){
 var queryResult = $.ajax({
 		method: 'GET',
-		url: '/images',
+		url: api_url+'/images',
 		data: {imageName:img,RM_R_CODE:code},
 		dataType: 'json',
 

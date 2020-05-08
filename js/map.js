@@ -14,8 +14,8 @@ var main_map = L.map(
     zoomControl: false,
     });
 L.control.zoom({position:'bottomright'}).addTo(main_map); 
-$('.leaflet-control-zoom')[0].style.bottom='20px';
-$('.leaflet-control-zoom')[0].style.right='220px';
+// $('.leaflet-control-zoom')[0].style.bottom='20px';
+// $('.leaflet-control-zoom')[0].style.right='220px';
 var openstreetmap_layer = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {

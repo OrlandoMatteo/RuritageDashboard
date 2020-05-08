@@ -102,7 +102,7 @@ function addInfrastr() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/infrastrarea',
+		url: api_url+'/infrastrarea',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -223,7 +223,7 @@ function addInfrastrBuild() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/infrastrbuild',
+		url: api_url+'/infrastrbuild',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -320,7 +320,7 @@ function addInfSia() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/infsia',
+		url: api_url+'/infsia',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -434,7 +434,7 @@ function addOpenAir() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/openair',
+		url: api_url+'/openair',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -543,7 +543,7 @@ function addLandUse() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/landuse',
+		url: api_url+'/landuse',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -644,7 +644,7 @@ function addTourism() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/tourism',
+		url: api_url+'/tourism',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -756,7 +756,7 @@ function addRoute() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/route',
+		url: api_url+'/route',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -844,7 +844,7 @@ function addChange() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/change',
+		url: api_url+'/change',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -903,7 +903,7 @@ function placeNatura(data) {
 function addNatura2000(){
 	var naturaResult = $.ajax({
 		method: 'GET',
-		url: '/natura',
+		url: api_url+'/natura',
 		dataType: 'json',
 
 		success: function(response) {
@@ -1020,7 +1020,7 @@ function addEvents() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/events',
+		url: api_url+'/events',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -1034,7 +1034,7 @@ function addNearTown() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/ntown',
+		url: api_url+'/ntown',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -1107,7 +1107,7 @@ function addRiskZone() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/queryriskareas',
+		url: api_url+'/queryriskareas',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 
@@ -1123,7 +1123,7 @@ function addElemsOfDist() {
 	bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
-		url: '/elemofdist',
+		url: api_url+'/elemofdist',
 		data: {bounds: JSON.stringify(bounds)},
 		dataType: 'json',
 

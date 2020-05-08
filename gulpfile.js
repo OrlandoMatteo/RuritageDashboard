@@ -111,6 +111,8 @@ function js() {
     .src([
       './js/*.js',
       '!./js/*.min.js',
+      './js/layer/*.js',
+      './js/layer/*.min.js',
     ])
     .pipe(uglify())
     .pipe(header(banner, {
