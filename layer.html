@@ -31,6 +31,9 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.25.0/slimselect.min.css" rel="stylesheet"></link>
 <script src="http://www.w3schools.com/lib/w3data.js"></script>
 
+<!-- Charts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 </head>
 <style>
   #main_map { height:50vh; }
@@ -84,7 +87,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Layer :layerName</h1>
+            <h1 class="h3 mb-0 text-gray-800" id="layerName"></h1>
           </div>
 
           <!-- Select Row -->
@@ -131,11 +134,11 @@
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Select:</div>
                       <select id="selectLayer" >
                         <option value='siteOfInterest'>Site of Interest</option>
-                        <option >Buildings and artifacts</option>
+                        <option value='buildings'>Buildings and artifacts</option>
                         <option value="events">Events</option>
-                        <option>Routes</option>
-                        <option>Rural-Urban interaction</option>
-                        <option>Infrastructures</option>
+                        <option value="routes">Routes</option>
+                        <option value="interaction">Rural-Urban interaction</option>
+                        <option value="infrastructures">Infrastructures</option>
                       </select>
                       
                     </div>
@@ -175,9 +178,6 @@
             </div>
         
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              
-            </div>
           </div>
         <!-- /.container-fluid -->
 
@@ -236,6 +236,7 @@
   
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
+  
 
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
@@ -244,6 +245,11 @@
   <script src="js/emptyMap.min.js"></script>
   <script src="js/translator.min.js"></script>
   <script src="js/layer/siteOfInterest.js"></script>
+  <script src="js/layer/buildings.js"></script>
+  <script src="js/layer/routes.js"></script>
+  <script src="js/layer/events.js"></script>
+  <script src="js/layer/infrastructures.js"></script>
+
   <script>
   var selectRMR=new SlimSelect({
     select: '#selectRmR',

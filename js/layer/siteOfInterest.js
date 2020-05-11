@@ -68,11 +68,6 @@ var role=''
 }
 
 function placeSite(data) {
-    main_map.eachLayer(function(layer) {
-        if (layer.feature) {
-            main_map.removeLayer(layer);
-        }
-    });
 
 	for (var i = 0; i < data.sites.length; i++) {
 		x = data.sites[i];

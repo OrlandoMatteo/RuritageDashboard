@@ -1,12 +1,26 @@
 var api_url="http://www.localhost:8000";
 function switchLayer(){
-    var selected=selectLayer.selected();
+	var selected=selectLayer.selected();
+	updatePage(selected);
     console.log($('#selectedLayer'));
     $('#selectedLayer')[0].innerHTML='<div w3-include-html="'+selected+'.html" id="selectedLayer"></div>';
     w3IncludeHTML();
     switch (selected) {
         case 'siteOfInterest':
-            siteOfInterestStats() 
+			siteOfInterestStats();
+			break;
+		case 'buildings':
+			buildingsStats();
+			break;
+		case 'events':
+			eventsStats();
+			break;
+		case 'routes':
+			routesStats();
+			break;
+		case 'infrastructures':
+			infrastructureStats();
+			break;
         default:
             break;
     }
@@ -41,4 +55,13 @@ function rmRColor(code){
 			case 'R6':
 				return '#0d5c1e';
 		}
+}
+
+function updatePage(selectedLayer){
+	main_map.eachLayer(function(layer) {
+        if (layer.feature) {
+            main_map.removeLayer(layer);
+        }
+	});
+	$('#layerName')[0].innerHTML=selectedLayer.charAt(0).toUpperCase() + selectedLayer.slice(1)
 }
