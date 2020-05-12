@@ -26,6 +26,10 @@ $yellow: #f6c23e !default;
 $green: #1cc88a !default;
 $teal: #20c9a6 !default;
 $cyan: #36b9cc !default;
+$ruritage: #93bf38 !default;
+
+$primary : $ruritage !default;
+$success : $ruritage !default;
 
 // Custom Colors
 $brand-google: #ea4335 !default;
@@ -55,6 +59,7 @@ $border-color: darken($gray-200, 2%) !default;
 // Spacing Variables
 // Change below variable if the height of the navbar changes
 $topbar-base-height: 4.375rem !default;
+
 // Change below variable to change the width of the sidenav
 $sidebar-base-width: 14rem !default;
 // Change below variable to change the width of the sidenav when collapsed

@@ -209,10 +209,10 @@ window.onload=$('.leaflet-control-layers').toggle();
 
 
 function collapseMap(){
-    if ($('#mapid')[0].style.height!='0vh'){
-        $('#mapid')[0].style.height='0vh';
+    if ($('#main_map')[0].style.height!='0vh'){
+        $('#main_map')[0].style.height='0vh';
     }
     else{
-        $('#mapid')[0].style.height='50vh';
+        $('#main_map')[0].style.height='50vh';
     }
 }
