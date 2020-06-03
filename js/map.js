@@ -205,7 +205,7 @@ main_map.on('zoomend', hideOnZoom);
 
 window.onLoad=updateMap();
 //window.onLoad=getRMV();
-window.onload=$('.leaflet-control-layers').toggle();
+//window.onload=$('.leaflet-control-layers').toggle();
 
 
 function collapseMap(){

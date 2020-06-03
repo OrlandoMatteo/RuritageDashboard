@@ -1,9 +1,8 @@
 function buildingsStats (){
-	var rm_R=selectRMR.selected()
 	var queryResult = $.ajax({
 		method: 'GET',
 		url: api_url+'/querybuildings',
-		data: {rm_r : JSON.stringify(rm_R)},
+		data: {},
 		dataType: 'json',
 
 		success: function(response) {
@@ -128,6 +127,6 @@ function updateBuildingsStats(response){
     $('#cultural')[0].innerHTML=response.cultural;
     $('#farms')[0].innerHTML=response.farms;
     $('#other')[0].innerHTML=response.other;
-    centroid=[response.centroid.geometry.coordinates[1],response.centroid.geometry.coordinates[0]]
-    main_map.setView(centroid,8)
+    //centroid=[response.centroid.geometry.coordinates[1],response.centroid.geometry.coordinates[0]]
+    //main_map.setView(centroid,8)
 }

@@ -1,16 +1,17 @@
 function siteOfInterestStats(){
-    var rm_R=selectRMR.selected()
+    //var rm_R=selectRMR.selected()
     bounds = main_map.getBounds();
 	var queryResult = $.ajax({
 		method: 'GET',
 		url: api_url+'/querysites',
-		data: {bounds: JSON.stringify(bounds),rm_r:JSON.stringify(rm_R)},
+		data: {},
 		dataType: 'json',
 
 		success: function(response) {
             x = response;
             placeSite(response);
-            updateSiteStats(response);
+			updateSiteStats(response);
+			updateSitesTable(response);
 
 		},
 	});
@@ -86,11 +87,25 @@ function placeSite(data) {
 }
 
 function updateSiteStats(response){
-    $('#featureCount')[0].innerHTML=response.featureCount;
-    $('#unescoSites')[0].innerHTML=response.unescoSites;
-    $('#nationalSites')[0].innerHTML=response.nationalSites;
-    $('#otherSites')[0].innerHTML=response.otherSites;
-    centroid=[response.centroid.geometry.coordinates[1],response.centroid.geometry.coordinates[0]]
-    main_map.setView(centroid,8)
+    // $('#featureCount')[0].innerHTML=response.featureCount;
+    // $('#unescoSites')[0].innerHTML=response.unescoSites;
+    // $('#nationalSites')[0].innerHTML=response.nationalSites;
+    // $('#otherSites')[0].innerHTML=response.otherSites;
+    //centroid=[response.centroid.geometry.coordinates[1],response.centroid.geometry.coordinates[0]]
+    //main_map.setView(centroid,8)
 
+}
+function updateSitesTable(response){
+	updatedTable=''
+	for (var i = 0; i < response.sites.length; i++) {
+		newEntry='<tr>'+
+					'<td>'+response.sites[i].properties.NAME+'</td>'+
+					'<td>'+response.sites[i].properties.RM_R_CODE+'</td>'+
+					'<td>'+protectedDict[response.sites[i].properties.REG_STATUS]+'</td>'+
+					'<td>'+charDict[response.sites[i].properties.CHAR_SIA]+'</td>'+
+				'</tr>';
+		updatedTable+=newEntry		
+	}
+	$('#tableBody')[0].innerHTML=updatedTable;
+	$('#dataTable').DataTable();
 }

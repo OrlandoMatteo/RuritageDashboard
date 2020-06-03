@@ -2,23 +2,28 @@ var api_url="http://www.localhost:8000";
 function switchLayer(){
 	var selected=selectLayer.selected();
 	updatePage(selected);
-    console.log($('#selectedLayer'));
+    console.log(selected);
     $('#selectedLayer')[0].innerHTML='<div w3-include-html="'+selected+'.html" id="selectedLayer"></div>';
     w3IncludeHTML();
     switch (selected) {
         case 'siteOfInterest':
+			$('#layerName')[0].innerHTML='Sites with historical/cultural/natural/social interest';
 			siteOfInterestStats();
 			break;
 		case 'buildings':
+			$('#layerName')[0].innerHTML='Buildings and artifacts with cultural or special functions or significance';
 			buildingsStats();
 			break;
 		case 'events':
+			$('#layerName')[0].innerHTML='Temporary large scale cultural/art event';
 			eventsStats();
 			break;
 		case 'routes':
+			$('#layerName')[0].innerHTML='Routes and itineraries with religious, natural, historical, touristic significance';
 			routesStats();
 			break;
 		case 'infrastructures':
+			$('#layerName')[0].innerHTML='Infrastructure/Facilities';
 			infrastructureStats();
 			break;
         default:
@@ -63,7 +68,7 @@ function updatePage(selectedLayer){
             main_map.removeLayer(layer);
         }
 	});
-	$('#layerName')[0].innerHTML=selectedLayer.charAt(0).toUpperCase() + selectedLayer.slice(1)
+	//$('#layerName')[0].innerHTML=selectedLayer.charAt(0).toUpperCase() + selectedLayer.slice(1)
 }
 
 (function($) {

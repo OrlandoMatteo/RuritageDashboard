@@ -76,7 +76,7 @@
       </div>
   
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="layer.html" >
           
           <span>Rural context</span>
@@ -94,9 +94,9 @@
       </li>
   
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="rmrpage.html">
-          <span>Role Models and Replicators</span>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#">
+          <span>Role Models and Replicator</span>
         </a>
       </li>
   
@@ -130,7 +130,7 @@
             <i class="fa fa-bars"></i>
           </button>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Search by rural context</h1>
+            <h1 class="h3 mb-0 text-gray-800">Role Models and Replicators</h1>
           </div>
         </nav>
 
@@ -139,40 +139,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800" id="layerName"></h1>
-          </div>
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-12">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Locations</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header"></div>
-                      <a class="dropdown-item" onclick="collapseMap()">Toggle map</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  
-                  <!--<div class="chart-area"><canvas id="myAreaChart"></canvas></div>-->
-                  <div id="main_map" style=""></div>
-                  
-                </div>
-              </div>
-            </div>
-        
-            <!-- Pie Chart -->
-          </div>
           <!-- Select Row -->
           <div class="row">
             
@@ -182,14 +148,28 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Select:</div>
-                      <select id="selectLayer" >
+                      <select id="selectRmR">
                         <option data-placeholder="true"></option>
-                        <option value='siteOfInterest'>Sites with historical/cultural/natural/social interest</option>
-                        <option value='buildings'>Buildings and artifacts with cultural or special functions or significance</option>
-                        <option value="events">Temporary large scale cultural/art event</option>
-                        <option value="routes">Routes and itineraries with religious, natural, historical, touristic significance</option>
-                        <option value="interaction">Rural-Urban interaction</option>
-                        <option value="infrastructures">Infrastructure/Facilities</option>
+                        <option value="RM1">RM 1</option>
+                        <option value="RM2">RM 2</option>
+                        <option value="RM3">RM 3</option>
+                        <option value="RM4">RM 4</option>
+                        <option value="RM5">RM 5</option>
+                        <option value="RM6">RM 6</option>
+                        <option value="RM7">RM 7</option>
+                        <option value="RM8">RM 8</option>
+                        <option value="RM9">RM 9</option>
+                        <option value="RM10">RM 10</option>
+                        <option value="RM11">RM 11</option>
+                        <option value="RM12">RM 12</option>
+                        <option value="RM13">RM 13</option>
+                        <option value="R1">R 1</option>
+                        <option value="R2">R 2</option>
+                        <option value="R3">R 3</option>
+                        <option value="R4">R 4</option>
+                        <option value="R5">R 5</option>
+                        <option value="R6">R 6</option>
+
                       </select>
                       
                     </div>
@@ -198,9 +178,162 @@
               </div>
             </div>
           </div>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800" id="selectedRMR"></h1>
+          </div>
+          <div class="row">
+            
+            <div class="col-xl-12 col-md-12 mb-4">
+              <div class="card-body">
+                <div id="rmRInfo">
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
           <!--Layer html-->
-          <div w3-include-html="siteOfInterest.html" id='selectedLayer'></div>
           
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div>
+                <h4>Buildings and artifacts with cultural or special functions or significance</h4>
+                <div class="card mb-4">
+                <!-- Card Header - Dropdown -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="buildingTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Function</th>
+                          <th>Registered at</th>
+                          <th>Building type</th>
+                          <th>Location</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Function</th>
+                          <th>Registered at</th>
+                          <th>Building type</th>
+                          <th>Location</th>
+                        </tr>
+                      </tfoot>
+                      <tbody id="buildingTableBody">
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div>
+                <h4>Sites with historical/cultural/natural/social interest</h4>
+                <div class="card mb-4">
+                <!-- Card Header - Dropdown -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="sitesTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Characterization</th>
+                          <th>Registered at</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Characterization</th>
+                          <th>Registered at</th>
+                        </tr>
+                      </tfoot>
+                      <tbody id="sitesTableBody">
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div>
+                <h4>Facilities and accessibility</h4>
+                <div class="card mb-4">
+                <!-- Card Header - Dropdown -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="infrastructuresTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Description</th>
+                        </tr>
+                      </tfoot>
+                      <tbody id="infrastructuresTableBody">
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div>
+                <h4>Relevant periodic open air activities</h4>
+                <div class="card mb-4">
+                <!-- Card Header - Dropdown -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="openAirTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Activity</th>
+                          <th>Periodicity</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Activity</th>
+                          <th>Periodicity</th>
+                        </tr>
+                      </tfoot>
+                      <tbody id="openAirTableBody">
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -238,14 +371,9 @@
 
   <!-- Page level custom scripts -->
 
-  <script src="js/layer/switchLayer.js"></script>
-  <script src="js/emptyMap.min.js"></script>
+  <script src="js/partner/switchPartner.js"></script>
+  <!-- <script src="js/emptyMap.min.js"></script> -->
   <script src="js/translator.min.js"></script>
-  <script src="js/layer/siteOfInterest.js"></script>
-  <script src="js/layer/buildings.js"></script>
-  <script src="js/layer/routes.js"></script>
-  <script src="js/layer/events.js"></script>
-  <script src="js/layer/infrastructures.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="js/demo/datatables-demo.js"></script>
@@ -257,14 +385,22 @@
   //   switchLayer();
   //   }
   // });
-  var selectLayer=new SlimSelect({
-    select: '#selectLayer',
+  var selectPartner=new SlimSelect({
+    select: '#selectRmR',
     placeholder:'Select',
     onChange: (info) => {
-    switchLayer();
+    switchPartner();
     } 
   });
-  w3IncludeHTML();
+  var btable=$('#buildingTable').DataTable({
+    columns:[
+      {title:'Name'},
+      {title:'Function'},
+      {title:'Registered at'},
+      {title:'Building type'},
+      {title:'Location'}
+    ]}
+  );
   </script>
 <script>
   // Toggle the side navigation
